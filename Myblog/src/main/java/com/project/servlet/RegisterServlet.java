@@ -6,6 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import com.project.Dao.UserDao;
+import com.project.connector.DatabaseConnection;
+import com.project.entities.EndUser;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -34,7 +39,27 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		
+		
+		String name = request.getParameter("name");
+		String emailString = request.getParameter("email");
+		String passwordString = request.getParameter("password");
+		
+		EndUser user = new EndUser(name, emailString,passwordString);
+		UserDao databasecon = new UserDao(DatabaseConnection.connector());
+		
+		if(databasecon.addUser(user)) {
+			pw.println("Done");
+		}
+		else
+		{
+			pw.println("Error");
+		}
+		
+		
+		
 	}
 
 }
