@@ -22,5 +22,11 @@ public class message {
 	public void setCssType(String cssType) {
 		this.cssType = cssType;
 	}
+	public message(String content, String type, String cssType) {
+		super();
+		this.content = content;
+		this.type = type;
+		this.cssType = cssType;
+	}
 
 }

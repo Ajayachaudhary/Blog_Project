@@ -71,6 +71,11 @@ public class EndUser {
 		this.email = emailString;
 		this.password = passwordString;
 	}
+	public EndUser() {
+		super();
+		// TODO Auto-generated constructor stub
+		
+	}
 	
 
 }

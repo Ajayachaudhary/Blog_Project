@@ -36,6 +36,35 @@ public class UserDao {
 		
 		return flag;
 	}
+	public UserDao getlogin(String userEmail, String userPassword) {
+		EndUser usr = null;
+		
+		try {
+			
+			String query = "select * from user where email = ? and password=? ;";
+			PreparedStatement pstm = conn.prepareStatement(query);
+			pstm.setString(1, userEmail);
+			pstm.setString(2, userPassword);
+			ResultSet set = pstm.executeQuery();
+			
+			if(set.next()) {
+				usr = new EndUser();
+				
+				usr.setId(set.getInt("id"));
+				usr.setNameString(set.getString("nameString"));
+				usr.setPassword(set.getString("password"));
+				usr.setEmail(set.getString("email"));
+				usr.setDateTimestamp(set.getTimestamp("Regdate"));
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
 	
 
 	
