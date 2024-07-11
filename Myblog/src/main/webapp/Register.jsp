@@ -15,7 +15,7 @@
             <h3>Register</h3>
           </div>
           <div class="card-body">
-            <form action="register_process.jsp" method="POST">
+            <form action="RegisterServlet" method="POST">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>

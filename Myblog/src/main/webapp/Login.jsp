@@ -15,7 +15,7 @@
             <h3>Login</h3>
           </div>
           <div class="card-body">
-            <form>
+            <form action="LoginServlet" method="POST">
               <div class="form-group">
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">

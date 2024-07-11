@@ -11,7 +11,7 @@
 </body>
 </html> --%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid justify-content-between">
+  <div class="container-fluid justify-content-between">	
     <!-- <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,20 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
         </li>
-      </ul>
+ 		 <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+              <a class="dropdown-item" href="#">Technology</a>
+              <a class="dropdown-item" href="#">Programming</a>
+              <a class="dropdown-item" href="#">Cryptography</a>
+              <a class="dropdown-item" href="#">Data Science</a>
+              <a class="dropdown-item" href="#">Java</a>
+              <a class="dropdown-item" href="#">Python</a>
+            </div>
+          </li>      
+         </ul>
     </div>
     <div class="d-flex">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -39,3 +52,4 @@
     </div>
   </div>
 </nav>
+
