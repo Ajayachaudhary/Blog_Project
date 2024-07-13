@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
 		UserDao databasecon = new UserDao(DatabaseConnection.connector());
 		
 		if(databasecon.addUser(user)) {
-			pw.println("Done");
+			pw.println("Successfully Register");
 		}
 		else
 		{

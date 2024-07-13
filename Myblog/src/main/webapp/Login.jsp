@@ -1,3 +1,5 @@
+<%@page import="com.project.entities.message"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +16,22 @@
           <div class="card-header text-center">
             <h3>Login</h3>
           </div>
+          <%
+                                message m = (message) session.getAttribute("message");
+                                if (m != null) {
+                            %>
+                            <div class="alert <%= m.getCssType() %>" role="alert">
+                                <%= m.getContent() %>
+                            </div> 
+
+
+                            <%        
+                                    session.removeAttribute("message");
+                                }
+
+                            %>
+          
+          
           <div class="card-body">
             <form action="LoginServlet" method="POST">
               <div class="form-group">

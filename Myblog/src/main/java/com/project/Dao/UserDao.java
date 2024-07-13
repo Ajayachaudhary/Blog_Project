@@ -20,7 +20,7 @@ public class UserDao {
 		boolean flag = false;
 		
 		try {
-			String quuery = "insert into user(nameString,email,password) values (?,?,?);";
+			String quuery = "insert into EndUser(nameString,email,password) values (?,?,?);";
 			PreparedStatement pstm = conn.prepareStatement(quuery);
 			pstm.setString(1, user.getNameString());
 			pstm.setString(2, user.getEmail());
@@ -36,12 +36,12 @@ public class UserDao {
 		
 		return flag;
 	}
-	public UserDao getlogin(String userEmail, String userPassword) {
+	public EndUser getlogin(String userEmail, String userPassword) {
 		EndUser usr = null;
 		
 		try {
 			
-			String query = "select * from user where email = ? and password=? ;";
+			String query = "select * from EndUser where email = ? and password=? ;";
 			PreparedStatement pstm = conn.prepareStatement(query);
 			pstm.setString(1, userEmail);
 			pstm.setString(2, userPassword);
@@ -63,7 +63,7 @@ public class UserDao {
 		}
 		
 		
-		return null;
+		return usr;
 	}
 	
 

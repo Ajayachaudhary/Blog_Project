@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 
 import com.project.Dao.UserDao;
 import com.project.connector.DatabaseConnection;
+import com.project.entities.EndUser;
 import com.project.entities.message;
 
 /**
@@ -47,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 		
 		UserDao Dbconn = new UserDao(DatabaseConnection.connector());
 		
-		UserDao usr = Dbconn.getlogin(UserEmail, UserPassword);
+		EndUser usr = Dbconn.getlogin(UserEmail, UserPassword);
 		
 		if(usr != null) {
 			HttpSession session = request.getSession();
