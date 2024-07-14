@@ -47,4 +47,22 @@ public class PostDao {
 		return posts;
 	}
 	
+	public boolean savePost(BlogPost post) {
+		boolean flag = false;
+		try {
+			String query = "insert into post(title,content,user_id) values (?,?,?);";
+			PreparedStatement pstm = conn.prepareStatement(query);
+			pstm.setString(1, post.getbTitle());
+			pstm.setString(2, post.getbContent());
+			pstm.setInt(3, post.getUserId());
+			flag = pstm.executeUpdate()>0; //upon successful insertion it return integer value and compare with 0
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}
+		return flag;
+	}
+	
 }
