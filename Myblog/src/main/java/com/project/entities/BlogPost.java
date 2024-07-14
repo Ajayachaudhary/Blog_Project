@@ -59,5 +59,12 @@ public class BlogPost {
 	}
 	private int cateId;
 	private int userId;
+	
+	public BlogPost(String title,String content ) {
+		this.bTitle = title;
+		this.bContent = content;
+	}
+	
+	
 
 }
