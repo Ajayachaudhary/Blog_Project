@@ -9,6 +9,9 @@ public class BlogPost {
 	private String bCode;
 	private String bPic;
 	private Timestamp bDate;
+	private int cateId;
+	private int userId;
+	
 	public int getBid() {
 		return bid;
 	}
@@ -57,12 +60,14 @@ public class BlogPost {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	private int cateId;
-	private int userId;
 	
 	public BlogPost(String title,String content ) {
 		this.bTitle = title;
 		this.bContent = content;
+	}
+	public BlogPost() {
+		// TODO Auto-generated constructor stub
+		super();
 	}
 	
 	
