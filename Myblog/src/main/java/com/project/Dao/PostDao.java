@@ -12,11 +12,12 @@ public class PostDao {
 
 	private Connection conn;
 	
+	
 	public PostDao(Connection connector) {
+		// TODO Auto-generated constructor stub
 		this.conn = connector;
 	}
-	
-	
+
 	public List<BlogPost> getAllPost(){
 		
 		List<BlogPost> posts = new ArrayList<>();
@@ -24,7 +25,7 @@ public class PostDao {
 		// fetch all the post 
 		try {
 			
-			String query = "select * from post order by id desc;";
+			String query = "select * from posts order by id desc;";
 			PreparedStatement pstm = conn.prepareStatement(query);
 			ResultSet result = pstm.executeQuery();
 			
@@ -50,7 +51,7 @@ public class PostDao {
 	public boolean savePost(BlogPost post) {
 		boolean flag = false;
 		try {
-			String query = "insert into post(title,content,user_id) values (?,?,?);";
+			String query = "insert into posts(title,content,user_id) values (?,?,?);";
 			PreparedStatement pstm = conn.prepareStatement(query);
 			pstm.setString(1, post.getbTitle());
 			pstm.setString(2, post.getbContent());

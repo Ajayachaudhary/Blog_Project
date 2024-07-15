@@ -1,4 +1,8 @@
 <%@ page import = "com.project.entities.EndUser" %>
+<%@ page import = "com.project.entities.BlogPost" %>
+<%@ page import = "com.project.Dao.PostDao" %>
+<%@ page import = "com.project.connector.DatabaseConnection" %>
+<%@ page import = "java.util.List" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -23,6 +27,11 @@
         	response.sendRedirect("Login.jsp");
         }
         %>
+        
+        <%
+        	PostDao dbconn = new PostDao(DatabaseConnection.connector());
+		    List<BlogPost> posts = dbconn.getAllPost();
+        %>
 
         <div class="jumbotron">
             <h1 class="display-4">Welcome to My Blog!</h1>
@@ -31,21 +40,39 @@
             <p>Explore the categories to find interesting articles or write your own.</p>
             <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </div>
-
-        <!-- Display posts or any other content -->
+		<!-- Display posts -->
         <div class="row">
-            <!-- Example card -->
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Post Title</h5>
-                        <p class="card-text">Brief description of the post.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
+		   	 <% for (BlogPost post : posts) { %>
+		        <div class="col-sm-4 mb-3 d-flex align-items-stretch">
+		            <div class="card h-100">
+		                <div class="card-body d-flex flex-column">
+		                    <h5 class="card-title"><%= post.getbTitle() %></h5>
+		                    <p class="card-text flex-grow-1"><%= post.getbContent() %></p>
+		                    <a href="#" class="btn btn-primary mt-auto">Read More</a>
+		                </div>
+		            </div>
+		        </div>
+		    <% } %>
+		</div>
+
+       
+        <!-- Form to add a new post -->
+        <div class="mt-5">
+            <h2>Add a New Post</h2>
+            <form action="AddPostServlet" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
                 </div>
-            </div>
-            <!-- Add more cards as needed -->
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Add Post</button>
+            </form>
         </div>
+       
+       
     </div>
      <script 
     src="https://code.jquery.com/jquery-3.4.1.min.js"

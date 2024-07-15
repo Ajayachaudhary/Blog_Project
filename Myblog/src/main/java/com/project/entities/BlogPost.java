@@ -69,6 +69,11 @@ public class BlogPost {
 		// TODO Auto-generated constructor stub
 		super();
 	}
+	public BlogPost(int userid,String title, String content) {
+		this.userId = userid;
+		this.bTitle = title;
+		this.bContent = content;
+	}
 	
 	
 
